@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ODBC MySQL DWH"
+  DTS:DTSID="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}"
+  DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=mtrds.alienvault.com;user id=tstillwell;persistsecurityinfo=True;database=DWH;">
+      <DTS:Password
+        DTS:Name="password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlEuYZg1k/0y9DCuB0k0W2AAAAAACAAAAAAAQZgAAAAEAACAAAAADcLaqUJii1a94MzMTvcve9FhfEK3VZWpZR9G+F/aJvgAAAAAOgAAAAAIAACAAAADU3uO8p5YyggmPyNz3Wr/9ico0G0Ndj4UGxe+lgRq5moAAAADJ+b+ZTXfh5Z+gE+qC4nfWpzdF11kcoFnsGCejCy/GQ+HlA4wCjdhSIvsfbowFqtwmo1Baw26Dh+bKdxOsVswe0roRd7lv8HherTVNOaiMGAvDZE8GuenyTtX7Me7jHf/F633lHlRvyYT8Y1MJXfAXKAaEzI4QT1VW50XBQnd1s0AAAAASRLOSfoYU6vfSABHdKWfau+FLX36YBbPnlt+rGu5gVN62pw7j4a8zS3TudG5JKKI+4cXtGhcTxSjxf6j1EtKK</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

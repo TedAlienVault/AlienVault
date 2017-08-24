@@ -1,0 +1,78 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/7/2017 12:39:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NCARLIN-X15-SM"
+  DTS:CreatorName="NCARLIN-X15-SM\Nicole Carlin"
+  DTS:DTSID="{302E949A-3EE4-4B1A-9815-E3A0B0F44CE2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CopyStorm"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{65CABA08-D902-47A7-9F7C-C3C8FD378123}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B6E7F1D4-A8A6-434B-94E0-9B276F770DBD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CopyStormFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Ted Stillwell\Downloads\CopyStormSQLServer_8.37.4_win64\CopyStorm\CopyStorm.bat</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EPR CopyStorm"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="This Execute Process Task executes the CopyStorm application to populate Salesforce data into the Salesforce database."
+      DTS:DTSID="{5178145F-C177-449F-856C-68B44A7DF080}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EPR CopyStorm"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2017 CTP2.1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Executable">@[User::CopyStormFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Users\Ted Stillwell\Downloads\CopyStormSQLServer_8.37.4_win64\CopyStorm\CopyStorm.bat"
+          Arguments="-run SalesforceConfiguration.copyStorm" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\EPR CopyStorm"
+          TopLeft="582.285715721091,248.117647873902" />
+        <AnnotationLayout
+          Text="This Execute Process Task executes the CopyStorm application to populate Salesforce data into the Salesforce database."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="224,88"
+          Id="768b98e5-a374-4ceb-bc43-0a3b55fdb341"
+          TopLeft="786,238" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

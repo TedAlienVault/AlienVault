@@ -1,0 +1,2329 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/25/2017 2:17:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TSTILLWELL-XPSA"
+  DTS:CreatorName="TSTILLWELL-XPSA\Ted Stillwell"
+  DTS:DTSID="{F1265B53-050D-443B-8C5D-A65001821350}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Tableau View Extracts"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{8E0141F2-E1E1-44C1-8311-C80444D00C3B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT DWH tableau_AdRoll_Adv"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BAFF87B4-26DD-4374-AC48-F529C7E2FBDE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT DWH tableau_AdRoll_Adv"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO MySQL DWH tableau_AdRoll_Adv"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        `Date`, `Ad Type`, CTA, Cost, Impressions, Clicks, SQLs, `Worked SQLs`, Opps, `Opp Value`, Deals, `Deal Value`
+FROM            tableau_AdRoll_Adv</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">1200</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DWH"."tableau_forummetrics_owns"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Connections[IDbConnection]"
+                  connectionManagerID="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  connectionManagerRefId="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Date]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Ad Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Ad Type]"
+                      length="50"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Ad Type]"
+                      name="Ad Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[CTA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[CTA]"
+                      length="50"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[CTA]"
+                      name="CTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Cost]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Cost]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Cost]"
+                      name="Cost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Impressions]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Impressions]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Impressions]"
+                      name="Impressions"
+                      precision="31"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Clicks]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Clicks]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Clicks]"
+                      name="Clicks"
+                      precision="31"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[SQLs]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[SQLs]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[SQLs]"
+                      name="SQLs"
+                      precision="22"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Worked SQLs]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Worked SQLs]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Worked SQLs]"
+                      name="Worked SQLs"
+                      precision="22"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Opps]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Opps]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Opps]"
+                      name="Opps"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Opp Value]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Opp Value]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Opp Value]"
+                      name="Opp Value"
+                      precision="38"
+                      scale="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Deals]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Deals]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Deals]"
+                      name="Deals"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Deal Value]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Deal Value]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Deal Value]"
+                      name="Deal Value"
+                      precision="38"
+                      scale="8"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Ad Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ad Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[CTA]"
+                      dataType="wstr"
+                      length="50"
+                      name="CTA" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Cost]"
+                      dataType="r8"
+                      name="Cost" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Impressions]"
+                      dataType="numeric"
+                      name="Impressions"
+                      precision="31" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Clicks]"
+                      dataType="numeric"
+                      name="Clicks"
+                      precision="31" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[SQLs]"
+                      dataType="numeric"
+                      name="SQLs"
+                      precision="22" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Worked SQLs]"
+                      dataType="numeric"
+                      name="Worked SQLs"
+                      precision="22" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Opps]"
+                      dataType="i8"
+                      name="Opps" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Opp Value]"
+                      dataType="numeric"
+                      name="Opp Value"
+                      precision="38"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Deals]"
+                      dataType="i8"
+                      name="Deals" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].ExternalColumns[Deal Value]"
+                      dataType="numeric"
+                      name="Deal Value"
+                      precision="38"
+                      scale="8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Ad Type]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Ad Type]"
+                      name="Ad Type" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[CTA]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[CTA]"
+                      name="CTA" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Cost]"
+                      dataType="r8"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Cost]"
+                      name="Cost" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Impressions]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Impressions]"
+                      name="Impressions"
+                      precision="31" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Clicks]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Clicks]"
+                      name="Clicks"
+                      precision="31" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[SQLs]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[SQLs]"
+                      name="SQLs"
+                      precision="22" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Worked SQLs]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Worked SQLs]"
+                      name="Worked SQLs"
+                      precision="22" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Opps]"
+                      dataType="i8"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Opps]"
+                      name="Opps" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Opp Value]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Opp Value]"
+                      name="Opp Value"
+                      precision="38"
+                      scale="8" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Deals]"
+                      dataType="i8"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Deals]"
+                      name="Deals" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Deal Value]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[Deal Value]"
+                      name="Deal Value"
+                      precision="38"
+                      scale="8" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLEDB DWH tableau_AdRoll_Adv"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tableau_AdRoll_Adv]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Connections[OleDbConnection]"
+                  connectionManagerID="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  connectionManagerRefId="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Ad Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Ad Type"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Ad Type]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Ad Type]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[CTA]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CTA"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[CTA]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[CTA]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Cost]"
+                      cachedDataType="r8"
+                      cachedName="Cost"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Cost]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Cost]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Impressions]"
+                      cachedDataType="numeric"
+                      cachedName="Impressions"
+                      cachedPrecision="31"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Impressions]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Impressions]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Clicks]"
+                      cachedDataType="numeric"
+                      cachedName="Clicks"
+                      cachedPrecision="31"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Clicks]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Clicks]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[SQLs]"
+                      cachedDataType="numeric"
+                      cachedName="SQLs"
+                      cachedPrecision="22"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[SQLs]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[SQLs]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Worked SQLs]"
+                      cachedDataType="numeric"
+                      cachedName="Worked SQLs"
+                      cachedPrecision="22"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Worked SQLs]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Worked SQLs]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Opps]"
+                      cachedDataType="i8"
+                      cachedName="Opps"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Opps]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Opps]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Opp Value]"
+                      cachedDataType="numeric"
+                      cachedName="Opp Value"
+                      cachedPrecision="38"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Opp Value]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Opp Value]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Deals]"
+                      cachedDataType="i8"
+                      cachedName="Deals"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Deals]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Deals]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].Columns[Deal Value]"
+                      cachedDataType="numeric"
+                      cachedName="Deal Value"
+                      cachedPrecision="38"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Deal Value]"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output].Columns[Deal Value]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Ad Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ad Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[CTA]"
+                      dataType="wstr"
+                      length="50"
+                      name="CTA" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Cost]"
+                      dataType="cy"
+                      name="Cost" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Impressions]"
+                      dataType="numeric"
+                      name="Impressions"
+                      precision="23" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Clicks]"
+                      dataType="numeric"
+                      name="Clicks"
+                      precision="23" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[SQLs]"
+                      dataType="numeric"
+                      name="SQLs"
+                      precision="23" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Worked SQLs]"
+                      dataType="numeric"
+                      name="Worked SQLs"
+                      precision="23" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Opps]"
+                      dataType="i8"
+                      name="Opps" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Opp Value]"
+                      dataType="numeric"
+                      name="Opp Value"
+                      precision="38"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Deals]"
+                      dataType="i8"
+                      name="Deals" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input].ExternalColumns[Deal Value]"
+                      dataType="numeric"
+                      name="Deal Value"
+                      precision="38"
+                      scale="8" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Terminator Destination;Pragmatic Works, Inc; Task Factory (c) 2009 - 2016 Pragmatic Works, Inc; http://www.pragmaticworks.com;support@pragmaticworks.com"
+              description="The terminator destination is used to terminate a data flow path without any setup"
+              name="TF Terminator Destination"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this property to True if you want to save buffer data to text file"
+                  expressionType="Notify"
+                  name="EnableDataDump">false</property>
+                <property
+                  dataType="System.String"
+                  description="Output file path for data dump"
+                  expressionType="Notify"
+                  name="DumpFilePath"></property>
+                <property
+                  dataType="System.String"
+                  description="Output file column separator"
+                  expressionType="Notify"
+                  name="ColumnSeparator">,</property>
+                <property
+                  dataType="System.String"
+                  description="Output file row separator"
+                  expressionType="Notify"
+                  name="RowSeparator">\r\n</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Unicode character support"
+                  expressionType="Notify"
+                  name="SupportUnicode">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output column names in the first row"
+                  expressionType="Notify"
+                  name="ColumnNamesInFirstRow">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">PW.TaskFactory.TerminatorDestination</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination.Inputs[TerminatorInput]"
+                  hasSideEffects="true"
+                  name="TerminatorInput">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Terminator Destination;Pragmatic Works, Inc; Task Factory (c) 2009 - 2016 Pragmatic Works, Inc; http://www.pragmaticworks.com;support@pragmaticworks.com"
+              description="The terminator destination is used to terminate a data flow path without any setup"
+              name="TF Terminator Destination 1"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this property to True if you want to save buffer data to text file"
+                  expressionType="Notify"
+                  name="EnableDataDump">false</property>
+                <property
+                  dataType="System.String"
+                  description="Output file path for data dump"
+                  expressionType="Notify"
+                  name="DumpFilePath"></property>
+                <property
+                  dataType="System.String"
+                  description="Output file column separator"
+                  expressionType="Notify"
+                  name="ColumnSeparator">,</property>
+                <property
+                  dataType="System.String"
+                  description="Output file row separator"
+                  expressionType="Notify"
+                  name="RowSeparator">\r\n</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Unicode character support"
+                  expressionType="Notify"
+                  name="SupportUnicode">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output column names in the first row"
+                  expressionType="Notify"
+                  name="ColumnNamesInFirstRow">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">PW.TaskFactory.TerminatorDestination</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination 1.Inputs[TerminatorInput]"
+                  hasSideEffects="true"
+                  name="TerminatorInput">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT DWH tableau_AdRoll_Adv.Paths[ADO NET Source Error Output]"
+              endId="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination 1.Inputs[TerminatorInput]"
+              name="ADO NET Source Error Output"
+              startId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Error Output]" />
+            <path
+              refId="Package\DFT DWH tableau_AdRoll_Adv.Paths[ADO NET Source Output]"
+              endId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT DWH tableau_AdRoll_Adv.Paths[OLE DB Destination Error Output]"
+              endId="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination.Inputs[TerminatorInput]"
+              name="OLE DB Destination Error Output"
+              startId="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv.Outputs[OLE DB Destination Error Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT DWH tableau_forummetrics"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{AC62C352-F408-4594-B21A-426184F82146}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT DWH tableau_forummetrics"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO MySQL DWH tableau_forummetrics"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Metric, `date`, type, detail, Subject, av, category, `User Email`, `count`, likes
+FROM            tableau_forummetrics</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">1200</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DWH"."tableau_forummetrics_owns"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Connections[IDbConnection]"
+                  connectionManagerID="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  connectionManagerRefId="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[Metric]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[Metric]"
+                      length="16"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[Metric]"
+                      name="Metric"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[type]"
+                      length="500"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[detail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[detail]"
+                      length="500"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[detail]"
+                      name="detail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[Subject]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[Subject]"
+                      length="100"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[Subject]"
+                      name="Subject"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[av]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[av]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[av]"
+                      name="av"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[User Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[User Email]"
+                      length="200"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[User Email]"
+                      name="User Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[count]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[count]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[count]"
+                      name="count"
+                      precision="31"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[likes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[likes]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[likes]"
+                      name="likes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[Metric]"
+                      dataType="wstr"
+                      length="16"
+                      name="Metric" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="500"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[detail]"
+                      dataType="wstr"
+                      length="500"
+                      name="detail" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[Subject]"
+                      dataType="wstr"
+                      length="100"
+                      name="Subject" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[av]"
+                      dataType="i8"
+                      name="av" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[User Email]"
+                      dataType="wstr"
+                      length="200"
+                      name="User Email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[count]"
+                      dataType="numeric"
+                      name="count"
+                      precision="31" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].ExternalColumns[likes]"
+                      dataType="i8"
+                      name="likes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[Metric]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[Metric]"
+                      name="Metric" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[type]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[type]"
+                      name="type" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[detail]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[detail]"
+                      name="detail" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[Subject]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[Subject]"
+                      name="Subject" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[av]"
+                      dataType="i8"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[av]"
+                      name="av" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[User Email]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[User Email]"
+                      name="User Email" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[count]"
+                      dataType="numeric"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[count]"
+                      name="count"
+                      precision="31" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[likes]"
+                      dataType="i8"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[likes]"
+                      name="likes" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLEDB DWH tableau_forummetrics"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tableau_forummetrics]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Connections[OleDbConnection]"
+                  connectionManagerID="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  connectionManagerRefId="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[Metric]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Metric"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[Metric]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[Metric]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[type]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="type"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[type]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[detail]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="detail"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[detail]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[detail]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[Subject]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Subject"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[Subject]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[Subject]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[av]"
+                      cachedDataType="i8"
+                      cachedName="av"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[av]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[av]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[category]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[User Email]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="User Email"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[User Email]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[User Email]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[count]"
+                      cachedDataType="numeric"
+                      cachedName="count"
+                      cachedPrecision="31"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[count]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[count]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].Columns[likes]"
+                      cachedDataType="i8"
+                      cachedName="likes"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[likes]"
+                      lineageId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output].Columns[likes]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[Metric]"
+                      dataType="wstr"
+                      length="50"
+                      name="Metric" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="500"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[detail]"
+                      dataType="wstr"
+                      length="500"
+                      name="detail" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[Subject]"
+                      dataType="wstr"
+                      length="100"
+                      name="Subject" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[av]"
+                      dataType="i8"
+                      name="av" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[User Email]"
+                      dataType="wstr"
+                      length="200"
+                      name="User Email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[count]"
+                      dataType="numeric"
+                      name="count"
+                      precision="32" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input].ExternalColumns[likes]"
+                      dataType="i8"
+                      name="likes" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics\TF Terminator Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Terminator Destination;Pragmatic Works, Inc; Task Factory (c) 2009 - 2016 Pragmatic Works, Inc; http://www.pragmaticworks.com;support@pragmaticworks.com"
+              description="The terminator destination is used to terminate a data flow path without any setup"
+              name="TF Terminator Destination"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this property to True if you want to save buffer data to text file"
+                  expressionType="Notify"
+                  name="EnableDataDump">false</property>
+                <property
+                  dataType="System.String"
+                  description="Output file path for data dump"
+                  expressionType="Notify"
+                  name="DumpFilePath"></property>
+                <property
+                  dataType="System.String"
+                  description="Output file column separator"
+                  expressionType="Notify"
+                  name="ColumnSeparator">,</property>
+                <property
+                  dataType="System.String"
+                  description="Output file row separator"
+                  expressionType="Notify"
+                  name="RowSeparator">\r\n</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Unicode character support"
+                  expressionType="Notify"
+                  name="SupportUnicode">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output column names in the first row"
+                  expressionType="Notify"
+                  name="ColumnNamesInFirstRow">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">PW.TaskFactory.TerminatorDestination</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_forummetrics\TF Terminator Destination.Inputs[TerminatorInput]"
+                  hasSideEffects="true"
+                  name="TerminatorInput">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT DWH tableau_forummetrics.Paths[ADO NET Source Output]"
+              endId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT DWH tableau_forummetrics.Paths[OLE DB Destination Error Output]"
+              endId="Package\DFT DWH tableau_forummetrics\TF Terminator Destination.Inputs[TerminatorInput]"
+              name="OLE DB Destination Error Output"
+              startId="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics.Outputs[OLE DB Destination Error Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT DWH tableau_forummetrics_owns"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{77D80075-2569-44C7-A090-26FD822812E7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT DWH tableau_forummetrics_owns"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO MySQL DWH tableau_forummetrics_owns"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+'email'
+, 'Owner Status'
+FROM DWH.tableau_forummetrics_owns</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">300</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DWH"."tableau_forummetrics_owns"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Connections[IDbConnection]"
+                  connectionManagerID="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  connectionManagerRefId="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].ExternalColumns[email]"
+                      length="5"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].Columns[Owner Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].ExternalColumns[Owner Status]"
+                      length="12"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].Columns[Owner Status]"
+                      name="Owner Status"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="5"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].ExternalColumns[Owner Status]"
+                      dataType="wstr"
+                      length="12"
+                      name="Owner Status" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[email]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[Owner Status]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[Owner Status]"
+                      name="Owner Status" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLEDB DWH tableau_forummetrics_owns"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tableau_forummetrics_owns]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Connections[OleDbConnection]"
+                  connectionManagerID="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  connectionManagerRefId="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input].Columns[Owner Status]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Owner Status"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input].ExternalColumns[Owner Status]"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output].Columns[Owner Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input].ExternalColumns[Owner Status]"
+                      dataType="wstr"
+                      length="50"
+                      name="Owner Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT DWH tableau_forummetrics_owns.Paths[ADO NET Source Output]"
+              endId="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT DWH tableau_forummetrics_thingslikes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{456F8013-DC40-42BF-A327-3DFE834FB5AA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT DWH tableau_forummetrics_thingslikes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO MySQL DWH tableau_forummetrics_thingslikes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        id, likes
+FROM            tableau_forummetrics_thinglikes</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">1200</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DWH"."tableau_forummetrics_owns"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Connections[IDbConnection]"
+                  connectionManagerID="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  connectionManagerRefId="{D04985C9-A2DB-450A-8DDA-F70DBB6AEF00}:invalid"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].Columns[likes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].ExternalColumns[likes]"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].Columns[likes]"
+                      name="likes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].ExternalColumns[likes]"
+                      dataType="i8"
+                      name="likes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[likes]"
+                      dataType="i8"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[likes]"
+                      name="likes" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLEDB DWH tableau_forummetrics_thingslikes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tableau_forummetrics_thingslikes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Connections[OleDbConnection]"
+                  connectionManagerID="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  connectionManagerRefId="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input].Columns[likes]"
+                      cachedDataType="i8"
+                      cachedName="likes"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input].ExternalColumns[likes]"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].Columns[likes]" />
+                    <inputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input].ExternalColumns[likes]"
+                      dataType="i8"
+                      name="likes" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DWH tableau_forummetrics_thingslikes\TF Terminator Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Terminator Destination;Pragmatic Works, Inc; Task Factory (c) 2009 - 2016 Pragmatic Works, Inc; http://www.pragmaticworks.com;support@pragmaticworks.com"
+              description="The terminator destination is used to terminate a data flow path without any setup"
+              name="TF Terminator Destination"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this property to True if you want to save buffer data to text file"
+                  expressionType="Notify"
+                  name="EnableDataDump">false</property>
+                <property
+                  dataType="System.String"
+                  description="Output file path for data dump"
+                  expressionType="Notify"
+                  name="DumpFilePath"></property>
+                <property
+                  dataType="System.String"
+                  description="Output file column separator"
+                  expressionType="Notify"
+                  name="ColumnSeparator">,</property>
+                <property
+                  dataType="System.String"
+                  description="Output file row separator"
+                  expressionType="Notify"
+                  name="RowSeparator">\r\n</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Unicode character support"
+                  expressionType="Notify"
+                  name="SupportUnicode">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output column names in the first row"
+                  expressionType="Notify"
+                  name="ColumnNamesInFirstRow">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">PW.TaskFactory.TerminatorDestination</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT DWH tableau_forummetrics_thingslikes\TF Terminator Destination.Inputs[TerminatorInput]"
+                  hasSideEffects="true"
+                  name="TerminatorInput">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT DWH tableau_forummetrics_thingslikes.Paths[ADO NET Source Output]"
+              endId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT DWH tableau_forummetrics_thingslikes.Paths[OLE DB Destination Error Output]"
+              endId="Package\DFT DWH tableau_forummetrics_thingslikes\TF Terminator Destination.Inputs[TerminatorInput]"
+              name="OLE DB Destination Error Output"
+              startId="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes.Outputs[OLE DB Destination Error Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\DFT DWH tableau_AdRoll_Adv"
+          TopLeft="507,422" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\DFT DWH tableau_forummetrics"
+          TopLeft="252,235" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\DFT DWH tableau_forummetrics_owns"
+          TopLeft="252,133" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\DFT DWH tableau_forummetrics_thingslikes"
+          TopLeft="255,71" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT DWH tableau_AdRoll_Adv">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="211,42"
+          Id="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination 1"
+          TopLeft="699,65" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv"
+          TopLeft="281,53" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv"
+          TopLeft="276,159" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\DFT DWH tableau_AdRoll_Adv\TF Terminator Destination"
+          TopLeft="798,200" />
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_AdRoll_Adv.Paths[OLE DB Destination Error Output]"
+          TopLeft="546,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="252,41"
+              Start="0,0"
+              End="244.5,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122,0"
+                    Point2="126,0"
+                    Point3="126,4" />
+                  <mssgle:LineSegment
+                    End="126,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126,37"
+                    Point2="126,41"
+                    Point3="130,41" />
+                  <mssgle:LineSegment
+                    End="244.5,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.1299609375,-22,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_AdRoll_Adv.Paths[ADO NET Source Output]"
+          TopLeft="411.75,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_AdRoll_Adv.Paths[ADO NET Source Error Output]"
+          TopLeft="544,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155,12"
+              Start="0,0"
+              End="147.5,12">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.5,0"
+                    Point2="77.5,0"
+                    Point3="77.5,4" />
+                  <mssgle:LineSegment
+                    End="77.5,8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.5,8"
+                    Point2="77.5,12"
+                    Point3="81.5,12" />
+                  <mssgle:LineSegment
+                    End="147.5,12" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.5849609375,-22,134.87890625,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_AdRoll_Adv\ADO MySQL DWH tableau_AdRoll_Adv">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_AdRoll_Adv\OLEDB DWH tableau_AdRoll_Adv">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT DWH tableau_forummetrics">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\DFT DWH tableau_forummetrics\TF Terminator Destination"
+          TopLeft="798,200" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics"
+          TopLeft="276,159" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics"
+          TopLeft="281,53" />
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_forummetrics.Paths[ADO NET Source Output]"
+          TopLeft="411.75,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_forummetrics.Paths[OLE DB Destination Error Output]"
+          TopLeft="546,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="252,41"
+              Start="0,0"
+              End="244.5,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122,0"
+                    Point2="126,0"
+                    Point3="126,4" />
+                  <mssgle:LineSegment
+                    End="126,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126,37"
+                    Point2="126,41"
+                    Point3="130,41" />
+                  <mssgle:LineSegment
+                    End="244.5,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.1299609375,-22,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_forummetrics\OLEDB DWH tableau_forummetrics">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_forummetrics\ADO MySQL DWH tableau_forummetrics">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT DWH tableau_forummetrics_owns">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="270,42"
+          Id="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns"
+          TopLeft="276,159" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns"
+          TopLeft="281,53" />
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_forummetrics_owns.Paths[ADO NET Source Output]"
+          TopLeft="411.75,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_forummetrics_owns\ADO MySQL DWH tableau_forummetrics_owns">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_forummetrics_owns\OLEDB DWH tableau_forummetrics_owns">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT DWH tableau_forummetrics_thingslikes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="270,42"
+          Id="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes"
+          TopLeft="276,159" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes"
+          TopLeft="281,53" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\DFT DWH tableau_forummetrics_thingslikes\TF Terminator Destination"
+          TopLeft="798,200" />
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_forummetrics_thingslikes.Paths[OLE DB Destination Error Output]"
+          TopLeft="546,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="252,41"
+              Start="0,0"
+              End="244.5,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122,0"
+                    Point2="126,0"
+                    Point3="126,4" />
+                  <mssgle:LineSegment
+                    End="126,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126,37"
+                    Point2="126,41"
+                    Point3="130,41" />
+                  <mssgle:LineSegment
+                    End="244.5,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.1299609375,-22,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DWH tableau_forummetrics_thingslikes.Paths[ADO NET Source Output]"
+          TopLeft="411.75,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_forummetrics_thingslikes\OLEDB DWH tableau_forummetrics_thingslikes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DWH tableau_forummetrics_thingslikes\ADO MySQL DWH tableau_forummetrics_thingslikes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

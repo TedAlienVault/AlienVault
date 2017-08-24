@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/25/2017 1:26:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TSTILLWELL-XPSA"
+  DTS:CreatorName="TSTILLWELL-XPSA\Ted Stillwell"
+  DTS:DTSID="{D47E0B63-F7D4-4898-B333-FBB4C91BEA20}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{3D9C27D3-F644-47A0-802F-E2A5F5EEAE73}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

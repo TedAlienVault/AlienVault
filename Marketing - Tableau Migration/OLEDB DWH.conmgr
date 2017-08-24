@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLEDB DWH"
+  DTS:DTSID="{0EA8A3E0-3657-4F59-8115-B42D4B4CFE9E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=devdb01.alienvault.com;User ID=tstillwell;Initial Catalog=DWH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlEuYZg1k/0y9DCuB0k0W2AAAAAACAAAAAAAQZgAAAAEAACAAAACpFsZdD7oIIvJivFBAI1kEWYjL+C8OlE/KbEy8n/BSbwAAAAAOgAAAAAIAACAAAACoI0scZy+KS43IXmiHNASsCD85nRm7YbR0b+/pwWZsOYAAAAD5XRusKj8NCbfFBHwlPnF4mDVIYN2+yH0kU7WpuirqxdpKeG7dby2YAXlgBa3Tfo5GB5PVINRPn+K3+JI5R3R/bwpLM57BFZRzNVdfStZDwnaRbg9nseWYw1eF1Mk+ZUGPXZdq4urdvCcmeusDJFRSzAjABavWdjh4qd/UM7FEBUAAAADdm0WNGbe2QPcvloomoCKxEJTTVXy21HRKdBeMzV1bItG9rVd5xwJvBUGMorM6iQ/em5M1TFgVfDcCV+FKIX/6</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
